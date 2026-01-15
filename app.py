@@ -51,12 +51,13 @@ if uploaded and count_button:
         with col1:
             st.subheader("Summary (per student)")
             st.dataframe(summary_df, use_container_width=True, height=420)
-            st.download_(
-                "Download summary CSV",
+            st.download_button(
+                label="Download summary CSV",
                 data=summary_df.to_csv(index=False).encode("utf-8"),
                 file_name="tardy_summary.csv",
                 mime="text/csv",
             )
+
 
         with col2:
             st.subheader("Detail (one row per tardy mark)")
